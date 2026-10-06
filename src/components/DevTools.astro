@@ -1,0 +1,441 @@
+---
+interface DevTool {
+  id: string;
+  name: string;
+  subtitle: string;
+  group: 'languages' | 'compilers' | 'terminal' | 'vcs';
+  link: string;
+  icon: 'terminal' | 'layers' | 'code2' | 'cpu' | 'git-branch' | 'mail' | 'box' | 'wrench';
+}
+
+const devTools: DevTool[] = [
+  {
+    id: "01",
+    name: "Neovim",
+    subtitle: "Modal Text Editor",
+    group: "terminal",
+    link: "https://neovim.io/",
+    icon: "code2"
+  },
+  {
+    id: "02",
+    name: "Tmux",
+    subtitle: "Terminal Multiplexer",
+    group: "terminal",
+    link: "https://github.com/tmux/tmux",
+    icon: "layers"
+  },
+  {
+    id: "03",
+    name: "Ghostty",
+    subtitle: "GPU Terminal Emulator",
+    group: "terminal",
+    link: "https://ghostty.org/",
+    icon: "terminal"
+  },
+  {
+    id: "04",
+    name: "GNU/Linux",
+    subtitle: "Operating System & Kernel",
+    group: "terminal",
+    link: "https://kernel.org/",
+    icon: "cpu"
+  },
+  {
+    id: "05",
+    name: "Docker",
+    subtitle: "Container Runtime",
+    group: "terminal",
+    link: "https://www.docker.com/",
+    icon: "box"
+  },
+  {
+    id: "06",
+    name: "Podman",
+    subtitle: "Rootless Containers",
+    group: "terminal",
+    link: "https://podman.io/",
+    icon: "box"
+  },
+  {
+    id: "07",
+    name: "Git",
+    subtitle: "Version Control System",
+    group: "vcs",
+    link: "https://git-scm.com/",
+    icon: "git-branch"
+  },
+  {
+    id: "08",
+    name: "Jujutsu (jj)",
+    subtitle: "Git-Compatible VCS",
+    group: "vcs",
+    link: "https://github.com/martinvonz/jj",
+    icon: "git-branch"
+  },
+  {
+    id: "09",
+    name: "b4 patches",
+    subtitle: "Kernel Patch Tool",
+    group: "vcs",
+    link: "https://git.kernel.org/pub/scm/utils/b4/b4.git/",
+    icon: "wrench"
+  },
+  {
+    id: "10",
+    name: "aerc",
+    subtitle: "TUI Email Client",
+    group: "vcs",
+    link: "https://git.sr.ht/~rjarry/aerc",
+    icon: "mail"
+  },
+  {
+    id: "11",
+    name: "C",
+    subtitle: "Systems & Low-Level",
+    group: "languages",
+    link: "https://en.cppreference.com/w/c",
+    icon: "cpu"
+  },
+  {
+    id: "12",
+    name: "C++",
+    subtitle: "Systems Programming",
+    group: "languages",
+    link: "https://en.cppreference.com/w/cpp",
+    icon: "cpu"
+  },
+  {
+    id: "13",
+    name: "Python",
+    subtitle: "AI & Inference",
+    group: "languages",
+    link: "https://www.python.org/",
+    icon: "code2"
+  },
+  {
+    id: "14",
+    name: "Java",
+    subtitle: "Enterprise & JVM",
+    group: "languages",
+    link: "https://openjdk.org/",
+    icon: "code2"
+  },
+  {
+    id: "15",
+    name: "Spring Boot",
+    subtitle: "Backend & Microservices",
+    group: "languages",
+    link: "https://spring.io/projects/spring-boot",
+    icon: "layers"
+  },
+  {
+    id: "16",
+    name: "JavaScript / TypeScript",
+    subtitle: "Web & Typed Runtime",
+    group: "languages",
+    link: "https://www.typescriptlang.org/",
+    icon: "code2"
+  },
+  {
+    id: "17",
+    name: "React",
+    subtitle: "UI & Component Library",
+    group: "languages",
+    link: "https://react.dev/",
+    icon: "code2"
+  },
+  {
+    id: "18",
+    name: "Astro",
+    subtitle: "Modern Web Framework",
+    group: "languages",
+    link: "https://astro.build/",
+    icon: "code2"
+  },
+  {
+    id: "19",
+    name: "Julia",
+    subtitle: "Scientific & JIT Language",
+    group: "languages",
+    link: "https://julialang.org/",
+    icon: "code2"
+  },
+  {
+    id: "20",
+    name: "GCC",
+    subtitle: "GNU Compiler Collection",
+    group: "compilers",
+    link: "https://gcc.gnu.org/",
+    icon: "cpu"
+  },
+  {
+    id: "21",
+    name: "Clang",
+    subtitle: "LLVM C/C++ Compiler",
+    group: "compilers",
+    link: "https://clang.llvm.org/",
+    icon: "cpu"
+  },
+  {
+    id: "22",
+    name: "Make",
+    subtitle: "Build Automation Tool",
+    group: "compilers",
+    link: "https://www.gnu.org/software/make/",
+    icon: "wrench"
+  },
+  {
+    id: "23",
+    name: "CMake",
+    subtitle: "Build System Generator",
+    group: "compilers",
+    link: "https://cmake.org/",
+    icon: "wrench"
+  },
+  {
+    id: "24",
+    name: "Ninja",
+    subtitle: "Fast Build Runner",
+    group: "compilers",
+    link: "https://ninja-build.org/",
+    icon: "box"
+  },
+  {
+    id: "25",
+    name: "GDB / LLDB",
+    subtitle: "Low-Level Debugger",
+    group: "compilers",
+    link: "https://sourceware.org/gdb/",
+    icon: "wrench"
+  }
+];
+---
+
+<section id="dev-tools" class="bg-[var(--bg-primary)] py-16 sm:py-24 md:py-28 px-4 sm:px-6 lg:px-8 relative border-t border-[var(--border-primary)] transition-colors duration-300">
+  <div class="max-w-7xl mx-auto">
+    {/* Section Header */}
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-8 sm:mb-12">
+      <div>
+        <div class="mb-3 sm:mb-4">
+          <span class="font-mono text-xs sm:text-[0.6875rem] text-[var(--text-muted)]">[05]</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl md:text-7xl font-black tracking-tight text-[var(--text-primary)] uppercase leading-[1.05]">
+          MY_DEV_TOOLS
+        </h2>
+      </div>
+
+      <div class="font-mono text-[0.625rem] sm:text-xs tracking-[0.15em] uppercase text-[var(--text-secondary)] border-l-2 border-[var(--text-primary)] pl-3 py-1 max-w-md">
+        DAILY DRIVERS // SYSTEMS, COMPILERS & WORKSPACE STACK
+      </div>
+    </div>
+
+    {/* Filter Navigation Tabs */}
+    <div class="flex flex-wrap gap-2 mb-6 sm:mb-8 border-b border-[var(--border-secondary)] pb-4 sm:pb-5">
+      <button
+        type="button"
+        data-filter="all"
+        class="dev-tool-filter-btn px-3 sm:px-3.5 py-1 font-mono text-[0.6rem] sm:text-[0.65rem] tracking-wider uppercase border transition-all duration-200 bg-[var(--accent-invert-bg)] text-[var(--accent-invert-text)] border-[var(--text-primary)] font-bold cursor-pointer"
+      >
+        ALL ({devTools.length})
+      </button>
+      <button
+        type="button"
+        data-filter="languages"
+        class="dev-tool-filter-btn px-3 sm:px-3.5 py-1 font-mono text-[0.6rem] sm:text-[0.65rem] tracking-wider uppercase border transition-all duration-200 bg-[var(--card-bg)] text-[var(--text-secondary)] border-[var(--border-primary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] cursor-pointer"
+      >
+        LANGUAGES & FRAMEWORKS
+      </button>
+      <button
+        type="button"
+        data-filter="compilers"
+        class="dev-tool-filter-btn px-3 sm:px-3.5 py-1 font-mono text-[0.6rem] sm:text-[0.65rem] tracking-wider uppercase border transition-all duration-200 bg-[var(--card-bg)] text-[var(--text-secondary)] border-[var(--border-primary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] cursor-pointer"
+      >
+        BUILD & COMPILERS
+      </button>
+      <button
+        type="button"
+        data-filter="terminal"
+        class="dev-tool-filter-btn px-3 sm:px-3.5 py-1 font-mono text-[0.6rem] sm:text-[0.65rem] tracking-wider uppercase border transition-all duration-200 bg-[var(--card-bg)] text-[var(--text-secondary)] border-[var(--border-primary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] cursor-pointer"
+      >
+        TERMINAL & WORKSPACE
+      </button>
+      <button
+        type="button"
+        data-filter="vcs"
+        class="dev-tool-filter-btn px-3 sm:px-3.5 py-1 font-mono text-[0.6rem] sm:text-[0.65rem] tracking-wider uppercase border transition-all duration-200 bg-[var(--card-bg)] text-[var(--text-secondary)] border-[var(--border-primary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] cursor-pointer"
+      >
+        VCS & MAILING LIST
+      </button>
+    </div>
+
+    {/* Compact Tools Grid with Constant Height */}
+    <div
+      id="dev-tools-grid"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 content-start min-h-[680px] sm:min-h-[560px] md:min-h-[480px] lg:min-h-[400px]"
+    >
+      {devTools.map((tool) => (
+        <a
+          href={tool.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-group={tool.group}
+          class="dev-tool-card bg-[var(--card-bg)] border border-[var(--border-primary)] p-3.5 sm:p-4 flex items-center justify-between hover:border-[var(--text-primary)] hover:bg-[var(--card-bg-hover)] transition-all duration-200 group"
+          aria-label={`Open ${tool.name} website`}
+        >
+          <div class="flex items-center gap-3 min-w-0">
+            <div class="p-2 bg-[var(--bg-primary)] border border-[var(--border-secondary)] text-[var(--text-primary)] shrink-0 group-hover:border-[var(--text-primary)] transition-colors">
+              {tool.icon === 'code2' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m18 16 4-4-4-4"></path>
+                  <path d="m6 8-4 4 4 4"></path>
+                  <path d="m14.5 4-5 16"></path>
+                </svg>
+              )}
+              {tool.icon === 'layers' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"></path>
+                  <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"></path>
+                  <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"></path>
+                </svg>
+              )}
+              {tool.icon === 'terminal' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+              )}
+              {tool.icon === 'cpu' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="16" height="16" x="4" y="4" rx="2"></rect>
+                  <rect width="6" height="6" x="9" y="9"></rect>
+                  <path d="M15 2v2"></path>
+                  <path d="M15 20v2"></path>
+                  <path d="M2 15h2"></path>
+                  <path d="M2 9h2"></path>
+                  <path d="M20 15h2"></path>
+                  <path d="M20 9h2"></path>
+                  <path d="M9 2v2"></path>
+                  <path d="M9 20v2"></path>
+                </svg>
+              )}
+              {tool.icon === 'git-branch' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="6" y1="3" x2="6" y2="15"></line>
+                  <circle cx="18" cy="6" r="3"></circle>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <path d="M18 9a9 9 0 0 1-9 9"></path>
+                </svg>
+              )}
+              {tool.icon === 'mail' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              )}
+              {tool.icon === 'wrench' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+              )}
+              {tool.icon === 'box' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+                  <path d="m3.3 7 8.7 5 8.7-5"></path>
+                  <path d="M12 22V12"></path>
+                </svg>
+              )}
+            </div>
+
+            <div class="truncate">
+              <h3 class="font-serif text-base sm:text-lg font-bold text-[var(--text-primary)] tracking-tight leading-snug truncate">
+                {tool.name}
+              </h3>
+              <p class="font-mono text-[0.625rem] sm:text-[0.65rem] text-[var(--text-secondary)] uppercase tracking-wider truncate">
+                {tool.subtitle}
+              </p>
+            </div>
+          </div>
+
+          <div class="text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7"></path>
+              <path d="M7 7h10v10"></path>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupDevToolsFilter() {
+    const grid = document.getElementById('dev-tools-grid') as HTMLElement | null;
+    const filterButtons = document.querySelectorAll('.dev-tool-filter-btn');
+    const cards = document.querySelectorAll('.dev-tool-card');
+    if (!grid) return;
+
+    let currentFilter = 'all';
+
+    function lockHeight() {
+      if (!grid) return;
+      // Temporarily reveal cards to measure full natural height for current width
+      cards.forEach(card => {
+        (card as HTMLElement).style.display = 'flex';
+      });
+      grid.style.minHeight = '';
+      const fullHeight = grid.getBoundingClientRect().height;
+      grid.style.minHeight = `${Math.ceil(fullHeight)}px`;
+
+      // Restore active filter
+      cards.forEach((card) => {
+        const group = card.getAttribute('data-group');
+        if (currentFilter === 'all' || group === currentFilter) {
+          (card as HTMLElement).style.display = 'flex';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    }
+
+    // Measure on init
+    lockHeight();
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter') || 'all';
+        currentFilter = filter;
+
+        // Update button active state
+        filterButtons.forEach((btn) => {
+          btn.classList.remove('bg-[var(--accent-invert-bg)]', 'text-[var(--accent-invert-text)]', 'border-[var(--text-primary)]', 'font-bold');
+          btn.classList.add('bg-[var(--card-bg)]', 'text-[var(--text-secondary)]', 'border-[var(--border-primary)]');
+        });
+
+        button.classList.remove('bg-[var(--card-bg)]', 'text-[var(--text-secondary)]', 'border-[var(--border-primary)]');
+        button.classList.add('bg-[var(--accent-invert-bg)]', 'text-[var(--accent-invert-text)]', 'border-[var(--text-primary)]', 'font-bold');
+
+        // Filter cards without altering grid dimensions
+        cards.forEach((card) => {
+          const group = card.getAttribute('data-group');
+          if (filter === 'all' || group === filter) {
+            (card as HTMLElement).style.display = 'flex';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Re-lock height on viewport resize
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(lockHeight, 100);
+    });
+  }
+
+  setupDevToolsFilter();
+  document.addEventListener('astro:page-load', setupDevToolsFilter);
+</script>

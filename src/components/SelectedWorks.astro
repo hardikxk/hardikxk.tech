@@ -1,0 +1,300 @@
+---
+interface Project {
+  index: string;
+  identity: string;
+  domain: string;
+  stack: string;
+  description: string;
+  link: string;
+}
+
+const projects: Project[] = [
+  {
+    index: "001",
+    identity: "YUCC - Toy C Compiler",
+    domain: "COMPILERS / SYSTEMS",
+    stack: "C++20 / COMPILERS / SYSTEMS",
+    description: "A C compiler engineered from scratch in modern C++ leveraging C++20 standard features, built completely without external dependencies or third-party parser generators. Features a custom lexer, recursive-descent parser, semantic type-checker, and code generator capable of compiling complex real-world software including the Git source code.",
+    link: "https://yucc.tech"
+  },
+  {
+    index: "002",
+    identity: "Quantum Side Channel Analysis Pipeline",
+    domain: "POST-QUANTUM CRYPTO / AI",
+    stack: "PYTORCH / TENSOR NETWORKS / ONNX",
+    description: "An end-to-end deep learning side-channel cryptanalysis pipeline evaluating physical hardware security of NIST FIPS 203 (ML-KEM / Kyber) on ARM Cortex-M4. Features bounded-memory streaming HDF5 ingestion (<112 MB peak RAM), a quantum-inspired Matrix Product State (MPS) tensor network, and 0.14 ms Int8 ONNX CPU deployment driving Guessing Entropy to Rank 1.0.",
+    link: "https://github.com/hardikxk/pqc-sca"
+  },
+  {
+    index: "003",
+    identity: "AWS Distributed Blogging Platform",
+    domain: "CLOUD / INFRASTRUCTURE",
+    stack: "TERRAFORM / AWS / ASTRO SSR",
+    description: "A production-grade, highly available full-stack blog platform deploying a multi-tier cloud architecture via a single Terraform deploy script. Features Astro SSR on an EC2 Auto Scaling Group behind an Application Load Balancer, a decoupled comments microservice on ECS Fargate, single-table DynamoDB storage, media CDN via S3 and CloudFront, and automated serverless pipelines using AWS Lambda, SQS, and SNS.",
+    link: "https://github.com/hardikxk/HXKastro-blog-aws-full-stack"
+  },
+  {
+    index: "004",
+    identity: "License Plate Recognition System",
+    domain: "COMPUTER VISION / OCR",
+    stack: "PYTHON / ONNX RUNTIME / YOLOV9 / OPENCV",
+    description: "A high-performance, modular Automatic License Plate Recognition (ALPR) system optimized with ONNX Runtime across CPU and GPU backends. Features end-to-end YOLOv9 plate detection, fast plate character recognition, temporal IoU tracking, multi-frame consensus voting, and live RTSP video stream inference.",
+    link: "https://github.com/hardikxk/anpr-ocr"
+  },
+  {
+    index: "005",
+    identity: "Fleet Management System",
+    domain: "UTILITY / TOOLS",
+    stack: "JAVA / MICROSERVICES / AWS",
+    description: "A comprehensive fleet management system built on a microservices architecture with robust AWS support via LocalStack for localized cloud development and testing.",
+    link: "https://github.com/hardikxk/fleetit"
+  },
+  {
+    index: "006",
+    identity: "Herm - Terminal Emulator",
+    domain: "SYSTEMS / GUI",
+    stack: "C / RAYLIB / LIBGHOSTTY-VT",
+    description: "A fast, lightweight terminal emulator implemented in C. Uses Raylib for windowing, event handling, and 2D canvas rendering, paired with libghostty-vt for SIMD-accelerated VT sequence parsing, terminal state tracking, and scrollback management.",
+    link: "https://github.com/hardikxk/herm"
+  },
+  {
+    index: "007",
+    identity: "LeetJournal",
+    domain: "BACKEND / CLOUD",
+    stack: "JAVA / SPRING BOOT / AI",
+    description: "A Java/Spring Boot microservices coding platform for DSA practice. Features custom Auth server, API Gateway, and an AI module for hints. Includes a unique email reminder system to help users revise concepts at specific intervals.",
+    link: "https://gitlab.com/hardikxk/leet-journal"
+  },
+  {
+    index: "008",
+    identity: "RAG Chatbot",
+    domain: "AI / RAG",
+    stack: "JAVA / RAG / AI",
+    description: "An intelligent chatbot implementation using Retrieval-Augmented Generation (RAG) to provide precise, context-aware assistance for complex domain queries.",
+    link: "https://github.com/hardikxk/hardware-chatbot"
+  },
+  {
+    index: "009",
+    identity: "cxp.nvim",
+    domain: "DEVELOPER TOOLS / NEOVIM",
+    stack: "LUA / NEOVIM API / ASYNC",
+    description: "A minimal, asynchronous Neovim plugin for competitive programming written in ~200 lines of Lua. Provides an input/output split panel to compile and execute C, C++, Python, and TypeScript solutions with stdin piping, runtime benchmarking, and human-readable crash diagnostics.",
+    link: "https://github.com/hardikxk/cxp.nvim"
+  },
+  {
+    index: "010",
+    identity: "Conway's Game of Life",
+    domain: "SYSTEMS / SIMULATION",
+    stack: "C++23 / SFML / CELLULAR AUTOMATA",
+    description: "A Conway's Game of Life simulation built to put modern C++23 features into practice. Implements a toroidal grid using std::mdspan with multi-subscript indexing, a neighbour-evaluation pipeline via std::ranges, compile-time validation with consteval, and double-buffered state updates, rendered with smooth fade glow in SFML.",
+    link: "https://github.com/hardikxk/game-of-life"
+  },
+  {
+    index: "011",
+    identity: "Free Image Converter",
+    domain: "UTILITY / TOOLS",
+    stack: "TYPESCRIPT / WEB APIS",
+    description: "A minimalist, high-performance web utility for converting images between various formats directly in the browser with speed and security.",
+    link: "https://free-image.hardikxk.tech/"
+  }
+];
+---
+
+<section class="bg-[var(--bg-primary)] py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative border-t border-[var(--border-primary)] transition-colors duration-300">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-baseline gap-3 sm:gap-4 mb-12 sm:mb-16 md:mb-24">
+      <span class="font-mono text-xs sm:text-[0.6875rem] text-[var(--text-muted)]">[02]</span>
+      <h2 class="font-serif text-3xl sm:text-5xl md:text-7xl font-black tracking-tight text-[var(--text-primary)]">SELECTED_WORKS</h2>
+    </div>
+
+    <div class="w-full border-t border-[var(--border-primary)]">
+      {/* Table Header - Desktop Only */}
+      <div class="hidden md:grid md:grid-cols-[0.4fr_2.8fr_1.1fr_1.9fr_0.4fr] text-left font-mono text-[0.625rem] uppercase tracking-[0.2em] text-[var(--text-muted)] py-6 border-b border-[var(--border-primary)]">
+        <div class="px-4">INDEX</div>
+        <div class="px-4">PROJECT_IDENTITY</div>
+        <div class="px-4">DOMAIN</div>
+        <div class="px-4">TECHNOLOGY_STACK</div>
+        <div class="px-4 text-right">ACTION</div>
+      </div>
+
+      {/* Project Rows */}
+      {projects.map((project, idx) => (
+        <div class="project-row-container border-b border-[var(--border-secondary)]" data-index={idx}>
+          {/* Desktop Row View */}
+          <div 
+            class="project-row-trigger hidden md:grid md:grid-cols-[0.4fr_2.8fr_1.1fr_1.9fr_0.4fr] items-center cursor-pointer py-8 md:py-10 transition-all duration-300 hover:bg-[var(--accent-invert-bg)] hover:text-[var(--accent-invert-text)] text-[var(--text-primary)] group"
+          >
+            <div class="px-4 font-mono text-[0.6875rem] group-hover:text-[var(--accent-invert-text)]">{project.index}</div>
+            <div class="px-4 font-black tracking-tight text-xl md:text-2xl truncate group-hover:text-[var(--accent-invert-text)]">{project.identity}</div>
+            <div class="px-4 font-mono text-[0.625rem] uppercase opacity-70 group-hover:opacity-100 group-hover:text-[var(--accent-invert-text)] whitespace-nowrap">{project.domain}</div>
+            <div class="px-4 flex flex-wrap items-center gap-1.5 font-mono text-[0.625rem]">
+              {project.stack.split(' / ').map((tag) => (
+                <span class="project-tag px-2 py-0.5 border border-[var(--border-secondary)] text-[var(--text-secondary)] group-hover:text-[var(--accent-invert-text)] font-mono text-[0.55rem] sm:text-[0.6rem] tracking-wider uppercase transition-colors whitespace-nowrap bg-transparent">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div class="px-4 text-right">
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="project-external-link inline-flex p-2.5 border border-current rounded-full transition-all duration-300 group-hover:rotate-45 group-hover:bg-[var(--accent-invert-text)] group-hover:text-[var(--accent-invert-bg)] group-hover:border-[var(--accent-invert-text)]"
+                aria-label={`Open ${project.identity} repository`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 7h10v10"></path>
+                  <path d="M7 17 17 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Mobile / Small Screen Card View */}
+          <div 
+            class="project-row-trigger flex md:hidden flex-col gap-3 py-5 px-3 sm:px-4 cursor-pointer transition-all duration-300 hover:bg-[var(--accent-invert-bg)] hover:text-[var(--accent-invert-text)] text-[var(--text-primary)] group"
+          >
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                <span class="font-mono text-xs text-[var(--text-muted)] group-hover:text-[var(--accent-invert-text)] shrink-0">{project.index}</span>
+                <span class="font-black text-lg sm:text-xl tracking-tight truncate group-hover:text-[var(--accent-invert-text)]">{project.identity}</span>
+              </div>
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="project-external-link inline-flex p-2 border border-current rounded-full shrink-0 min-w-[36px] min-h-[36px] items-center justify-center transition-all duration-300 group-hover:rotate-45 group-hover:bg-[var(--accent-invert-text)] group-hover:text-[var(--accent-invert-bg)] group-hover:border-[var(--accent-invert-text)]"
+                aria-label={`Open ${project.identity} repository`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 7h10v10"></path>
+                  <path d="M7 17 17 7"></path>
+                </svg>
+              </a>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-1.5 font-mono text-[0.6rem] sm:text-[0.65rem]">
+              <span class="project-tag px-2 py-0.5 border border-[var(--border-secondary)] text-[var(--text-muted)] group-hover:text-[var(--accent-invert-text)] uppercase tracking-wider text-[0.55rem] transition-colors bg-transparent">
+                {project.domain}
+              </span>
+              {project.stack.split(' / ').map((tag) => (
+                <span class="project-tag px-2 py-0.5 border border-[var(--border-secondary)] text-[var(--text-secondary)] group-hover:text-[var(--accent-invert-text)] uppercase tracking-wider text-[0.55rem] transition-colors bg-transparent">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div class="project-accordion-panel grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]" style="grid-template-rows: 0fr; opacity: 0;">
+            <div class="overflow-hidden">
+              <div class="px-2 sm:px-4 py-6 sm:py-12 bg-[var(--card-bg)] backdrop-blur-sm">
+                <div class="max-w-4xl mx-auto border border-[var(--border-primary)] p-4 sm:p-6 md:p-8 relative">
+                  {/* Corner Accents */}
+                  <div class="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-[var(--text-primary)]"></div>
+                  <div class="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-[var(--text-primary)]"></div>
+                  
+                  <div class="font-mono text-[0.625rem] tracking-widest text-[var(--text-muted)] uppercase border-b border-[var(--border-secondary)] pb-3 mb-4 sm:mb-6">
+                    SPEC_DOCUMENTATION // V1.0_PRO
+                  </div>
+                  <p class="font-sans text-sm sm:text-base md:text-lg leading-relaxed text-[var(--text-secondary)]">
+                    {project.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  function initProjectAccordion() {
+    const rows = document.querySelectorAll('.project-row-container');
+    let activeIdx = null;
+
+    rows.forEach((row, idx) => {
+      const triggers = row.querySelectorAll('.project-row-trigger');
+      const panel = row.querySelector('.project-accordion-panel');
+      const links = row.querySelectorAll('.project-external-link');
+
+      links.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      });
+
+      function handleToggle() {
+        if (activeIdx === idx) {
+          if (panel) {
+            panel.style.gridTemplateRows = '0fr';
+            panel.style.opacity = '0';
+          }
+          triggers.forEach((t) => {
+            t.classList.remove('is-active', 'bg-[var(--accent-invert-bg)]', 'text-[var(--accent-invert-text)]');
+            t.classList.add('text-[var(--text-primary)]');
+          });
+          activeIdx = null;
+        } else {
+          rows.forEach((otherRow) => {
+            const otherTriggers = otherRow.querySelectorAll('.project-row-trigger');
+            const otherPanel = otherRow.querySelector('.project-accordion-panel');
+            if (otherPanel) {
+              otherPanel.style.gridTemplateRows = '0fr';
+              otherPanel.style.opacity = '0';
+            }
+            otherTriggers.forEach((ot) => {
+              ot.classList.remove('is-active', 'bg-[var(--accent-invert-bg)]', 'text-[var(--accent-invert-text)]');
+              ot.classList.add('text-[var(--text-primary)]');
+            });
+          });
+
+          if (panel) {
+            panel.style.gridTemplateRows = '1fr';
+            panel.style.opacity = '1';
+          }
+          triggers.forEach((t) => {
+            t.classList.add('is-active', 'bg-[var(--accent-invert-bg)]', 'text-[var(--accent-invert-text)]');
+            t.classList.remove('text-[var(--text-primary)]');
+          });
+          activeIdx = idx;
+        }
+      }
+
+      triggers.forEach((trigger) => {
+        trigger.addEventListener('click', handleToggle);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectAccordion);
+  } else {
+    initProjectAccordion();
+  }
+</script>
+
+<style>
+  /* Ensure tags explicitly invert color when parent row is hovered or opened/active */
+  .project-row-trigger:hover .project-tag,
+  .project-row-trigger.is-active .project-tag {
+    color: var(--accent-invert-text) !important;
+    border-color: currentColor !important;
+    opacity: 1 !important;
+  }
+
+  /* Fill the arrow button from inside with solid contrast color and rotate on hover or active */
+  .project-row-trigger:hover .project-external-link,
+  .project-row-trigger.is-active .project-external-link {
+    background-color: var(--accent-invert-text) !important;
+    color: var(--accent-invert-bg) !important;
+    border-color: var(--accent-invert-text) !important;
+    transform: rotate(45deg);
+  }
+
+  /* Extra tactile response when hovering directly on the link itself */
+  .project-external-link:hover {
+    transform: rotate(45deg) scale(1.1) !important;
+  }
+</style>

@@ -1,0 +1,83 @@
+---
+// ThemeToggle.astro
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  aria-label="Toggle theme"
+  class="fixed top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-12 z-50 font-mono text-[0.625rem] sm:text-[0.6875rem] uppercase tracking-[0.15em] sm:tracking-[0.2em] px-3 py-2 sm:px-4 sm:py-2.5 bg-[var(--bg-primary)] border border-[var(--border-primary)] text-[var(--text-primary)] hover:border-[var(--text-primary)] hover:bg-[var(--accent-invert-bg)] hover:text-[var(--accent-invert-text)] backdrop-blur-md transition-all duration-300 flex items-center gap-2 sm:gap-3 cursor-pointer shadow-lg select-none hover:scale-[1.02] active:scale-[0.96] group min-h-[38px] sm:min-h-[44px]"
+>
+  <span id="theme-dark-content" class="flex items-center gap-2 sm:gap-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--text-primary)] group-hover:text-[var(--accent-invert-text)] shrink-0">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>
+    <span class="hidden sm:inline">[ MODE // DARK ]</span>
+    <span class="inline sm:hidden">[ DARK ]</span>
+  </span>
+  
+  <span id="theme-light-content" class="hidden items-center gap-2 sm:gap-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--text-primary)] group-hover:text-[var(--accent-invert-text)] shrink-0">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2"></path>
+      <path d="M12 20v2"></path>
+      <path d="m4.93 4.93 1.41 1.41"></path>
+      <path d="m17.66 17.66 1.41 1.41"></path>
+      <path d="M2 12h2"></path>
+      <path d="M20 12h2"></path>
+      <path d="m6.34 17.66-1.41 1.41"></path>
+      <path d="m19.07 4.93-1.41 1.41"></path>
+    </svg>
+    <span class="hidden sm:inline">[ MODE // LIGHT ]</span>
+    <span class="inline sm:hidden">[ LIGHT ]</span>
+  </span>
+</button>
+
+<script is:inline>
+  function applyTheme(theme) {
+    const root = document.documentElement;
+    const darkContent = document.getElementById('theme-dark-content');
+    const lightContent = document.getElementById('theme-light-content');
+    const button = document.getElementById('theme-toggle');
+
+    if (theme === 'light') {
+      root.classList.add('light');
+      root.classList.remove('dark');
+      if (darkContent) darkContent.classList.add('hidden');
+      if (darkContent) darkContent.classList.remove('flex');
+      if (lightContent) lightContent.classList.remove('hidden');
+      if (lightContent) lightContent.classList.add('flex');
+      if (button) button.setAttribute('aria-label', 'Switch to dark mode');
+    } else {
+      root.classList.add('dark');
+      root.classList.remove('light');
+      if (darkContent) darkContent.classList.remove('hidden');
+      if (darkContent) darkContent.classList.add('flex');
+      if (lightContent) lightContent.classList.add('hidden');
+      if (lightContent) lightContent.classList.remove('flex');
+      if (button) button.setAttribute('aria-label', 'Switch to light mode');
+    }
+  }
+
+  function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const theme = (savedTheme === 'light' || savedTheme === 'dark') ? savedTheme : 'dark';
+    applyTheme(theme);
+  }
+
+  // Initialize immediately
+  initTheme();
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    const button = document.getElementById('theme-toggle');
+    if (button) {
+      button.addEventListener('click', () => {
+        const isLight = document.documentElement.classList.contains('light');
+        const nextTheme = isLight ? 'dark' : 'light';
+        localStorage.setItem('theme', nextTheme);
+        applyTheme(nextTheme);
+      });
+    }
+  });
+</script>

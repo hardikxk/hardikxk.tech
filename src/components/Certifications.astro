@@ -1,0 +1,286 @@
+---
+interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  category: 'cloud' | 'ai' | 'systems';
+  categoryLabel: string;
+  issued: string;
+  validUntil?: string;
+  badgeImage: string;
+  verifyUrl: string;
+  description: string;
+  skills: string[];
+}
+
+const certifications: Certification[] = [
+  {
+    id: "01",
+    title: "Oracle Cloud Infrastructure 2025 Certified DevOps Professional",
+    issuer: "Oracle University",
+    category: "cloud",
+    categoryLabel: "CLOUD & DEVOPS",
+    issued: "14 October 2025",
+    validUntil: "October 14, 2027",
+    badgeImage: "https://brm-workforce.oracle.com/pdf/certview/images/OCI25DOPOCP.png",
+    verifyUrl: "https://catalog-education.oracle.com/ords/certview/sharebadge_m?id=C7030844A6F7CC2113AE73E56E27763B7D947A949FD84315307EC36EB65CB425",
+    description: "Validates technical proficiency in provisioning infrastructure as code (IaC), managing robust CI/CD pipelines, container orchestration engines, DevSecOps practices, and continuous observability on Oracle Cloud Infrastructure.",
+    skills: ["Infrastructure as Code", "CI/CD Pipelines", "Container Orchestration", "DevSecOps", "Observability (O&M)"]
+  },
+  {
+    id: "02",
+    title: "Oracle Cloud Infrastructure 2025 Certified Developer Professional",
+    issuer: "Oracle University",
+    category: "cloud",
+    categoryLabel: "CLOUD-NATIVE DEVELOPMENT",
+    issued: "29 October 2025",
+    validUntil: "October 29, 2027",
+    badgeImage: "https://brm-workforce.oracle.com/pdf/certview/images/OCID25CP.png",
+    verifyUrl: "https://catalog-education.oracle.com/ords/certview/sharebadge_m?id=79D23D328139CE173C7F2D62A07A59831EBFEE6F132A98392849941F65BC70F5",
+    description: "Certifies end-to-end expertise in developing and deploying scalable, secure cloud-native applications on OCI utilizing microservices architectures, serverless computing, API services, and troubleshooting telemetry.",
+    skills: ["Cloud-Native Microservices", "Serverless Computing", "Containerized Apps", "Application Security", "Troubleshooting Telemetry"]
+  },
+  {
+    id: "03",
+    title: "Oracle AI Cloud Database Services 2025 Certified Professional",
+    issuer: "Oracle University",
+    category: "ai",
+    categoryLabel: "CLOUD DATABASE & AI",
+    issued: "23 October 2025",
+    validUntil: "October 23, 2027",
+    badgeImage: "https://brm-workforce.oracle.com/pdf/certview/images/ODBCS25CP.png",
+    verifyUrl: "https://catalog-education.oracle.com/ords/certview/sharebadge_m?id=1A8CF95D18154224468B665DE35575E00C7A5BD4C37AF76627469D4200E036E2",
+    description: "Demonstrates comprehensive skills implementing Oracle AI Database Cloud Services on OCI, configuring Oracle Base Database, managing Exadata DB deployments, MySQL HeatWave, and NoSQL Cloud architectures.",
+    skills: ["Oracle AI Database", "Exadata DB", "MySQL HeatWave", "NoSQL Cloud Service", "Database Management"]
+  },
+  {
+    id: "04",
+    title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+    issuer: "Oracle University",
+    category: "ai",
+    categoryLabel: "AI & MACHINE LEARNING",
+    issued: "31 October 2025",
+    validUntil: "October 31, 2027",
+    badgeImage: "https://brm-workforce.oracle.com/pdf/certview/images/OCI25AICFAV1.png",
+    verifyUrl: "https://catalog-education.oracle.com/ords/certview/sharebadge_m?id=DDB0E013EF665012E2BF954625E19848BFFB72EA99F36C70D4031DB4B9A63046",
+    description: "Demonstrates core mastery in artificial intelligence, supervised and unsupervised machine learning, deep neural networks (CNNs, RNNs), Large Language Models (LLMs), and Oracle 23ai generative AI tooling.",
+    skills: ["Large Language Models (LLMs)", "Generative AI", "Machine Learning", "Deep Learning", "Oracle 23ai / Select AI"]
+  },
+  {
+    id: "05",
+    title: "AWS Academy Graduate - Cloud Foundations",
+    issuer: "Amazon Web Services (AWS)",
+    category: "cloud",
+    categoryLabel: "CLOUD ARCHITECTURE & AWS",
+    issued: "AWS Training & Certification",
+    badgeImage: "https://images.credly.com/images/e3541a0c-dd4a-4820-8052-5001006efc85/linkedin_thumb_blob",
+    verifyUrl: "https://www.credly.com/badges/394f88b0-165c-4cb5-aca7-dfa963fee4c4/linked_in_profile",
+    description: "Accredited training badge issued by AWS Training and Certification. Validates knowledge of fundamental AWS cloud architecture principles, compute, storage, databases, networking, security, and cloud financial economics.",
+    skills: ["AWS Core Services", "Cloud Architecture Principles", "Security & IAM", "Compute & Storage (EC2/S3)", "Cloud Economics"]
+  },
+  {
+    id: "06",
+    title: "LFS101: Introduction to Linux",
+    issuer: "The Linux Foundation",
+    category: "systems",
+    categoryLabel: "LINUX & SYSTEMS ADMINISTRATION",
+    issued: "The Linux Foundation",
+    badgeImage: "https://images.credly.com/images/97a95d07-04c3-4afb-952a-6bcf46ddb87e/linkedin_thumb_blob",
+    verifyUrl: "https://www.credly.com/badges/e651f89d-2f62-4943-bd0f-d6dda2c27596/public_url",
+    description: "Issued by The Linux Foundation on Credly. Confirms hands-on competency in operating and configuring major Linux distributions, terminal command-line operations, file system hierarchy, network services, shell scripting, and security.",
+    skills: ["Linux CLI & Administration", "Shell Scripting", "System Startup & Processes", "Network Management", "System Security"]
+  },
+  {
+    id: "07",
+    title: "Postman API Fundamentals Student Expert",
+    issuer: "Postman",
+    category: "systems",
+    categoryLabel: "API ENGINEERING & TESTING",
+    issued: "October 2025",
+    badgeImage: "https://api.badgr.io/public/badges/G0U1YVeOSdGAiytb9Yw6_w/image",
+    verifyUrl: "https://badges.parchment.com/public/assertions/IAPuBNq7TAC90tkLJy3stw",
+    description: "Validated API proficiency credential issued via Badgr/Parchment. Demonstrates skill in consuming, constructing, and testing RESTful APIs in Postman, designing test suites, response assertions, and request scripting.",
+    skills: ["RESTful APIs", "Postman Collections", "Automated Testing", "API Authorization", "Test Scripting"]
+  },
+  {
+    id: "08",
+    title: "Oracle Cloud Infrastructure Certified Foundations Associate",
+    issuer: "Oracle",
+    category: "Cloud",
+    categoryLabel: "CLOUD & DEVOPS",
+    issued: "October 2025",
+    badgeImage: "https://brm-workforce.oracle.com/pdf/certview/images/OCI26FNDCFA.png",
+    verifyUrl: "https://catalog-education.oracle.com/ords/certview/sharebadge_m?id=773F5FFCFEC419E20A70324A1819FCEE1956308B5B48F9DEC9F9106C5A2B3C36",
+    description: "Demonstrated fundamental knowledge of public cloud services provided by Oracle Cloud Infrastructure (OCI).",
+    skills: ["Cloud-Native Microservices", "Serverless Computing", "Containerized Apps", "OCI billing and cost management", "Understanding of governance and administration"]
+  }
+];
+---
+
+<section id="certifications" class="bg-[var(--bg-primary)] py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative border-t border-[var(--border-primary)] transition-colors duration-300">
+  <div class="max-w-7xl mx-auto">
+    {/* Section Header */}
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-8 sm:mb-12">
+      <div>
+        <div class="mb-3 sm:mb-4">
+          <span class="font-mono text-xs sm:text-[0.6875rem] text-[var(--text-muted)]">[04]</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl md:text-7xl font-black tracking-tight text-[var(--text-primary)] uppercase leading-[1.05]">
+          CERTIFICATIONS &amp; CREDENTIALS
+        </h2>
+      </div>
+
+      <div class="font-mono text-[0.625rem] sm:text-xs tracking-[0.15em] uppercase text-[var(--text-secondary)] border-l-2 border-[var(--text-primary)] pl-3 py-1 max-w-md">
+        VERIFIED ACCREDITATIONS // CLOUD, DEVOPS, AI &amp; SYSTEMS
+      </div>
+    </div>
+
+    {/* Filter Navigation Tabs */}
+    <div class="flex flex-wrap gap-2 mb-8 sm:mb-12 border-b border-[var(--border-secondary)] pb-4 sm:pb-5">
+      <button
+        type="button"
+        data-cert-filter="all"
+        class="cert-filter-btn px-3 sm:px-3.5 py-1 font-mono text-[0.6rem] sm:text-[0.65rem] tracking-wider uppercase border transition-all duration-200 bg-[var(--accent-invert-bg)] text-[var(--accent-invert-text)] border-[var(--text-primary)] font-bold cursor-pointer"
+      >
+        ALL ({certifications.length})
+      </button>
+      <button
+        type="button"
+        data-cert-filter="cloud"
+        class="cert-filter-btn px-3 sm:px-3.5 py-1 font-mono text-[0.6rem] sm:text-[0.65rem] tracking-wider uppercase border transition-all duration-200 bg-[var(--card-bg)] text-[var(--text-secondary)] border-[var(--border-primary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] cursor-pointer"
+      >
+        CLOUD &amp; DEVOPS ({certifications.filter(c => c.category === 'cloud').length})
+      </button>
+      <button
+        type="button"
+        data-cert-filter="ai"
+        class="cert-filter-btn px-3 sm:px-3.5 py-1 font-mono text-[0.6rem] sm:text-[0.65rem] tracking-wider uppercase border transition-all duration-200 bg-[var(--card-bg)] text-[var(--text-secondary)] border-[var(--border-primary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] cursor-pointer"
+      >
+        AI &amp; DATA ({certifications.filter(c => c.category === 'ai').length})
+      </button>
+      <button
+        type="button"
+        data-cert-filter="systems"
+        class="cert-filter-btn px-3 sm:px-3.5 py-1 font-mono text-[0.6rem] sm:text-[0.65rem] tracking-wider uppercase border transition-all duration-200 bg-[var(--card-bg)] text-[var(--text-secondary)] border-[var(--border-primary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] cursor-pointer"
+      >
+        SYSTEMS &amp; APIS ({certifications.filter(c => c.category === 'systems').length})
+      </button>
+    </div>
+
+    {/* Certifications Grid */}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      {certifications.map((cert) => (
+        <div
+          class="cert-card group bg-[var(--card-bg)] border border-[var(--border-primary)] p-5 sm:p-6 relative flex flex-col justify-between hover:border-[var(--text-primary)] transition-all duration-300 shadow-[4px_4px_0px_0px_var(--shadow-color)] sm:shadow-[6px_6px_0px_0px_var(--shadow-color)]"
+          data-category={cert.category}
+        >
+          {/* Corner Accents */}
+          <div class="absolute -top-1 -left-1 w-2 h-2 border-t-2 border-l-2 border-[var(--text-primary)]"></div>
+          <div class="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-[var(--text-primary)]"></div>
+
+          <div>
+            {/* Header: ID, Category & Issuer */}
+            <div class="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 mb-3.5 pb-2.5 border-b border-[var(--border-secondary)]">
+              <div class="flex items-center gap-1.5 min-w-0">
+                <span class="font-mono text-xs sm:text-[0.6875rem] font-bold text-[var(--text-muted)] shrink-0">
+                  [{cert.id}]
+                </span>
+                <span class="inline-flex items-center w-fit max-w-fit shrink-0 whitespace-nowrap font-mono text-[0.5rem] sm:text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 bg-[var(--bg-primary)] border border-[var(--border-secondary)] text-[var(--text-primary)] font-semibold leading-none">
+                  {cert.categoryLabel}
+                </span>
+              </div>
+
+              <div class="font-mono text-[0.55rem] sm:text-[0.6rem] font-semibold text-[var(--text-secondary)] text-right shrink-0">
+                {cert.issuer}
+              </div>
+            </div>
+
+            {/* Title & Badge Thumbnail */}
+            <div class="flex items-start gap-3.5 mb-2">
+              <div class="w-12 h-12 sm:w-13 sm:h-13 shrink-0 bg-[var(--bg-primary)] border border-[var(--border-secondary)] p-1.5 flex items-center justify-center overflow-hidden">
+                <img
+                  src={cert.badgeImage}
+                  alt={`${cert.title} badge`}
+                  class="w-full h-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="min-w-0 flex-1">
+                <h3 class="font-serif text-base sm:text-[1.05rem] lg:text-[1.125rem] font-bold text-[var(--text-primary)] tracking-tight leading-[1.35] group-hover:text-[var(--text-primary)] transition-colors">
+                  {cert.title}
+                </h3>
+
+                <div class="flex flex-wrap items-center gap-x-2.5 gap-y-0.5 mt-2 font-mono text-[0.575rem] sm:text-[0.625rem] text-[var(--text-muted)]">
+                  <span>Issued: {cert.issued}</span>
+                  {cert.validUntil && (
+                    <>
+                      <span>•</span>
+                      <span>Valid: {cert.validUntil}</span>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            {/* Verification Link */}
+            <div class="pt-3 mt-4 border-t border-[var(--border-secondary)] flex justify-end">
+              <a
+                href={cert.verifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[var(--border-primary)] hover:border-[var(--text-primary)] bg-[var(--bg-primary)] hover:bg-[var(--accent-invert-bg)] hover:text-[var(--accent-invert-text)] font-mono text-[0.575rem] sm:text-[0.625rem] font-bold tracking-wider uppercase transition-all duration-200 text-[var(--text-primary)]"
+                aria-label={`Verify ${cert.title} on official issuer portal`}
+              >
+                <span>VERIFY BADGE</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupCertFilter() {
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.cert-filter-btn');
+    const certCards = document.querySelectorAll<HTMLElement>('.cert-card');
+
+    if (!filterButtons.length || !certCards.length) return;
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-cert-filter');
+
+        // Update active button state
+        filterButtons.forEach((b) => {
+          b.classList.remove('bg-[var(--accent-invert-bg)]', 'text-[var(--accent-invert-text)]', 'font-bold');
+          b.classList.add('bg-[var(--card-bg)]', 'text-[var(--text-secondary)]');
+        });
+        btn.classList.add('bg-[var(--accent-invert-bg)]', 'text-[var(--accent-invert-text)]', 'font-bold');
+        btn.classList.remove('bg-[var(--card-bg)]', 'text-[var(--text-secondary)]');
+
+        // Filter cards
+        certCards.forEach((card) => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  setupCertFilter();
+  document.addEventListener('astro:page-load', setupCertFilter);
+</script>

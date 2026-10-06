@@ -1,0 +1,159 @@
+---
+import { Image } from 'astro:assets';
+import SocialIcons from './SocialIcons.astro';
+
+// Generate 40 pseudo-random deterministic stars
+const stars = Array.from({ length: 40 }).map((_, i) => {
+  const seed = (i * 9301 + 49297) % 233280;
+  const rand1 = seed / 233280;
+  const rand2 = ((seed * 9301 + 49297) % 233280) / 233280;
+  const rand3 = (((seed + 1) * 9301 + 49297) % 233280) / 233280;
+  const rand4 = (((seed + 2) * 9301 + 49297) % 233280) / 233280;
+  const rand5 = (((seed + 3) * 9301 + 49297) % 233280) / 233280;
+
+  return {
+    id: i,
+    top: `${rand1 * 100}%`,
+    left: i % 2 === 0 ? `${rand2 * 20}%` : `${80 + rand2 * 20}%`,
+    size: rand3 * 2 + 1,
+    duration: 2 + rand4 * 4,
+    delay: rand5 * 5,
+  };
+});
+---
+
+<section class="relative min-h-[100svh] w-full flex flex-col justify-center items-center px-4 sm:px-6 py-20 md:py-0 overflow-hidden border-b border-[var(--border-primary)] transition-colors duration-300">
+  {/* Starfield */}
+  {stars.map((star) => (
+    <div
+      class="star-particle absolute bg-[var(--star-color)] rounded-full pointer-events-none z-0"
+      style={`top: ${star.top}; left: ${star.left}; width: ${star.size}px; height: ${star.size}px; --star-duration: ${star.duration}s; --star-delay: ${star.delay}s;`}
+    />
+  ))}
+
+  {/* Cosmic Structure - Left Side */}
+  <div class="absolute left-[-5%] top-1/2 -translate-y-1/2 w-64 h-64 opacity-20 pointer-events-none z-0 hidden lg:block text-[var(--text-primary)]">
+    <svg viewBox="0 0 200 200" class="w-full h-full">
+      <circle 
+        cx="100" cy="100" r="80" 
+        fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4"
+        class="cosmic-circle-outer"
+      />
+      <circle 
+        cx="100" cy="100" r="40" 
+        fill="none" stroke="currentColor" stroke-width="1"
+        class="cosmic-circle-inner"
+      />
+      <path 
+        d="M20,100 Q100,20 180,100 T20,100" 
+        fill="none" stroke="currentColor" stroke-width="0.5"
+        class="cosmic-path"
+      />
+      <circle cx="100" cy="100" r="5" fill="currentColor" />
+      <line x1="100" y1="0" x2="100" y2="200" stroke="currentColor" stroke-width="0.25" opacity="0.5" />
+      <line x1="0" y1="100" x2="200" y2="100" stroke="currentColor" stroke-width="0.25" opacity="0.5" />
+    </svg>
+  </div>
+
+  {/* Technical Geometry - Right Side */}
+  <div class="absolute right-[-2%] bottom-[10%] w-48 h-48 opacity-20 pointer-events-none z-0 hidden lg:block text-[var(--text-primary)]">
+    <svg viewBox="0 0 100 100" class="w-full h-full">
+      <rect x="10" y="10" width="80" height="80" fill="none" stroke="currentColor" stroke-width="0.5" />
+      <rect 
+        x="20" y="20" width="60" height="60" 
+        fill="none" stroke="currentColor" stroke-width="0.25" stroke-dasharray="1 2"
+        class="tech-rect"
+      />
+      <line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="0.25" />
+      <line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="0.25" />
+      <circle cx="50" cy="50" r="2" fill="currentColor" />
+    </svg>
+  </div>
+
+  {/* Kinetic Overlays - Peripheral */}
+  <div class="absolute inset-0 pointer-events-none z-0 text-[var(--text-primary)]">
+    <svg class="w-full h-full opacity-60" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+      <g class="recalibrating-svg">
+        <circle cx="500" cy="500" r="400" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 8" />
+        <circle cx="500" cy="500" r="300" fill="none" stroke="currentColor" stroke-width="0.25" />
+        <line x1="100" y1="500" x2="900" y2="500" stroke="currentColor" stroke-width="0.5" />
+        <line x1="500" y1="100" x2="500" y2="900" stroke="currentColor" stroke-width="0.5" />
+      </g>
+      <path class="path-shimmer" d="M100,200 Q500,50 900,200 T900,800 Q500,950 100,800 Z" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.7" />
+    </svg>
+  </div>
+
+  {/* Central Kinetic Overlay */}
+  <div class="absolute inset-0 pointer-events-none z-10 flex items-center justify-center text-[var(--text-primary)]">
+    <svg class="w-[80%] h-[80%] opacity-40" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+      <path 
+        class="chaotic-svg" 
+        d="M500,500 m-200,0 a200,200 0 1,0 400,0 a200,200 0 1,0 -400,0 M500,500 m-300,0 a300,300 0 1,0 600,0 a300,300 0 1,0 -600,0" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="1" 
+      />
+    </svg>
+  </div>
+
+  {/* Name and Portrait Container */}
+  <div class="relative z-30 flex flex-col items-center w-full max-w-5xl mx-auto">
+    {/* Name Wrapper with Hover Trigger */}
+    <div 
+      id="hero-name-container"
+      class="relative flex flex-col items-center cursor-default group select-none"
+    >
+      {/* Portrait Card */}
+      <div 
+        id="hero-portrait-card"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-72 sm:w-60 sm:h-80 md:w-64 md:h-80 z-50 flex flex-col items-center pointer-events-none opacity-0 scale-90 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto shadow-2xl"
+      >
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 font-mono text-[0.6rem] text-[var(--accent-invert-text)] px-2.5 py-0.5 bg-[var(--accent-invert-bg)] border border-[var(--text-primary)] z-30 font-bold tracking-wider whitespace-nowrap">hardikxk</div>
+        <div class="border-[3px] border-[var(--text-primary)] p-1 bg-[var(--bg-primary)] relative overflow-hidden h-full w-full shadow-[0_0_50px_var(--shadow-color)]">
+          <Image 
+            src="/hardik.png"
+            alt="Hardik Kumar" 
+            width={400}
+            height={600}
+            loading="eager"
+            decoding="async"
+            class="w-full h-full object-cover grayscale contrast-125 brightness-90" 
+            referrerpolicy="no-referrer"
+          />
+          {/* Scanline effect */}
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--text-primary)]/10 to-transparent h-1 w-full animate-pulse"></div>
+        </div>
+      </div>
+
+      <h1 class="font-serif text-[13vw] sm:text-[10vw] md:text-[8vw] leading-[0.9] text-[var(--text-primary)] font-black uppercase tracking-tight sm:tracking-tighter text-center">
+        Hardik
+      </h1>
+      <h2 class="font-serif text-[13vw] sm:text-[10vw] md:text-[8vw] leading-[0.9] text-[var(--text-primary)] font-black uppercase tracking-tight sm:tracking-tighter text-center">
+        Kumar
+      </h2>
+    </div>
+    
+    <div class="mt-6 sm:mt-8 font-mono text-[0.6875rem] sm:text-xs md:text-[0.8125rem] tracking-[0.12em] sm:tracking-[0.2em] md:tracking-[0.3em] text-[var(--text-secondary)] uppercase px-3 py-2 sm:px-5 sm:py-2.5 bg-[var(--card-bg)] border border-[var(--border-secondary)] backdrop-blur-sm text-center max-w-[92vw] sm:max-w-xl md:max-w-2xl leading-relaxed">
+      Compilers // Deep Learning & Distributed Systems
+    </div>
+
+    {/* Social Links */}
+    <div class="mt-6 sm:mt-8 flex justify-center gap-6 sm:gap-8 relative z-30 flex-wrap">
+      <a href="https://github.com/hardikxk" target="_blank" rel="noopener noreferrer" class="text-[var(--text-primary)] hover:opacity-75 hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center p-2" aria-label="GitHub">
+        <SocialIcons name="github" size={24} />
+      </a>
+      <a href="https://www.linkedin.com/in/hardikxk/" target="_blank" rel="noopener noreferrer" class="text-[var(--text-primary)] hover:opacity-75 hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center p-2" aria-label="LinkedIn">
+        <SocialIcons name="linkedin" size={24} />
+      </a>
+      <a href="mailto:hardikxk@gmail.com" class="text-[var(--text-primary)] hover:opacity-75 hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center p-2" aria-label="Email">
+        <SocialIcons name="mail" size={24} />
+      </a>
+      <a href="https://discord.com/users/1045297858821247036" target="_blank" rel="noopener noreferrer" class="text-[var(--text-primary)] hover:opacity-75 hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center p-2" aria-label="Discord">
+        <SocialIcons name="discord" size={24} />
+      </a>
+      <a href="https://x.com/hardikxk" target="_blank" rel="noopener noreferrer" class="text-[var(--text-primary)] hover:opacity-75 hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center p-2" aria-label="X (formerly Twitter)">
+        <SocialIcons name="x" size={24} />
+      </a>
+    </div>
+  </div>
+</section>
