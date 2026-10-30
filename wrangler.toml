@@ -1,4 +1,5 @@
-name = "hardikxk"
+name = "hardikxk-tech"
+compatibility_date = "2026-10-23"
 
 [assets]
 directory = "./dist"
