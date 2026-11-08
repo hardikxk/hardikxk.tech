@@ -1,5 +1,5 @@
 {
-	"pid": 9036,
+	"pid": 28496,
 	"port": 3000,
 	"url": "http://localhost:3000",
 	"urls": {
@@ -7,12 +7,14 @@
 			"http://localhost:3000/"
 		],
 		"network": [
-			"http://10.31.121.56:3000/"
+			"http://10.31.121.56:3000/",
+			"http://172.22.112.1:3000/"
 		],
 		"networkInterfaceNames": [
-			"Wi-Fi"
+			"Wi-Fi",
+			"vEthernet (WSL (Hyper-V firewall))"
 		]
 	},
 	"background": false,
-	"startedAt": "2026-11-07T12:47:58.113Z"
+	"startedAt": "2026-11-08T18:08:17.883Z"
 }

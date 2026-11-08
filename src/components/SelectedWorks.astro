@@ -1,4 +1,6 @@
 ---
+import SocialIcons from './SocialIcons.astro';
+
 interface Project {
   index: string;
   identity: string;
@@ -71,7 +73,7 @@ const projects: Project[] = [
     domain: "BACKEND / CLOUD",
     stack: "JAVA / SPRING BOOT / AI",
     description: "A Java/Spring Boot microservices coding platform for DSA practice. Features custom Auth server, API Gateway, and an AI module for hints. Includes a unique email reminder system to help users revise concepts at specific intervals.",
-    link: "https://gitlab.com/hardikxk/leet-journal"
+    link: "https://github.com/hardikxk/leet-journal"
   },
   {
     index: "009",
@@ -147,6 +149,7 @@ const projects: Project[] = [
                 href={project.link} 
                 target="_blank" 
                 rel="noopener noreferrer"
+                title={`Open ${project.identity} on ${project.link.includes('gitlab.com') ? 'GitLab' : project.link.includes('github.com') ? 'GitHub' : 'Web'}`}
                 class="project-external-link inline-flex p-2.5 border border-current rounded-full transition-all duration-300 group-hover:rotate-45 group-hover:bg-[var(--accent-invert-text)] group-hover:text-[var(--accent-invert-bg)] group-hover:border-[var(--accent-invert-text)]"
                 aria-label={`Open ${project.identity} repository`}
               >
@@ -171,6 +174,7 @@ const projects: Project[] = [
                 href={project.link} 
                 target="_blank" 
                 rel="noopener noreferrer"
+                title={`Open ${project.identity} on ${project.link.includes('gitlab.com') ? 'GitLab' : project.link.includes('github.com') ? 'GitHub' : 'Web'}`}
                 class="project-external-link inline-flex p-2 border border-current rounded-full shrink-0 min-w-[36px] min-h-[36px] items-center justify-center transition-all duration-300 group-hover:rotate-45 group-hover:bg-[var(--accent-invert-text)] group-hover:text-[var(--accent-invert-bg)] group-hover:border-[var(--accent-invert-text)]"
                 aria-label={`Open ${project.identity} repository`}
               >
@@ -201,8 +205,23 @@ const projects: Project[] = [
                   <div class="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-[var(--text-primary)]"></div>
                   <div class="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-[var(--text-primary)]"></div>
                   
-                  <div class="font-mono text-[0.625rem] tracking-widest text-[var(--text-muted)] uppercase border-b border-[var(--border-secondary)] pb-3 mb-4 sm:mb-6">
-                    SPEC_DOCUMENTATION // V1.0_PRO
+                  <div class="flex items-center justify-between gap-3 border-b border-[var(--border-secondary)] pb-3 mb-4 sm:mb-6">
+                    <span class="font-mono text-[0.625rem] sm:text-[0.6875rem] tracking-widest text-[var(--text-muted)] uppercase font-semibold">
+                      DESCRIPTION
+                    </span>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 font-mono text-[0.6875rem] sm:text-xs tracking-wider uppercase px-3 py-1.5 bg-[var(--bg-primary)] border border-[var(--border-primary)] hover:border-[var(--text-primary)] hover:bg-[var(--accent-invert-bg)] hover:text-[var(--accent-invert-text)] text-[var(--text-primary)] transition-all duration-300 shrink-0 group/btn"
+                    >
+                      <SocialIcons name={project.link.includes('gitlab.com') ? 'gitlab' : 'github'} size={14} />
+                      <span>{project.link.includes('gitlab.com') ? 'Open in GitLab' : project.link.includes('github.com') ? 'Open in GitHub' : 'Visit Project'}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path>
+                      </svg>
+                    </a>
                   </div>
                   <p class="font-sans text-sm sm:text-base md:text-lg leading-relaxed text-[var(--text-secondary)]">
                     {project.description}
