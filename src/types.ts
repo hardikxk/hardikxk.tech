@@ -13,4 +13,5 @@ export interface Project {
   stack: string;
   description: string;
   link: string;
+  website?: string;
 }
